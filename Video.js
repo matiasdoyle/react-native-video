@@ -266,7 +266,8 @@ export default class Video extends Component {
           />
           <Image
             style={posterStyle}
-            source={{uri: this.props.poster}}
+            source={typeof this.props.poster === 'string' ?
+              { uri: this.props.poster } : this.props.poster}
           />
         </View>
       );
@@ -312,7 +313,11 @@ Video.propTypes = {
     PropTypes.number
   ]),
   resizeMode: PropTypes.string,
-  poster: PropTypes.string,
+  poster: PropTypes.oneOfType([
+    PropTypes.string,
+    // Opaque type returned by require('./poster.png')
+    PropTypes.number
+  ]),
   posterResizeMode: Image.propTypes.resizeMode,
   repeat: PropTypes.bool,
   allowsExternalPlayback: PropTypes.bool,

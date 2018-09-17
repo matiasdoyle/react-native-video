@@ -347,7 +347,7 @@ Platforms: iOS
 
 #### poster
 An image to display while the video is loading
-<br>Value: string with a URL for the poster, e.g. "https://baconmockup.com/300/200/"
+<br>Value: string with a URL for the poster, e.g. "https://baconmockup.com/300/200/" or the result of a local asset require, e.g. `require('./img/poster.png')`.
 
 Platforms: all
 
